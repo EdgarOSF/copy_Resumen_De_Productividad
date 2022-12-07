@@ -40,5 +40,14 @@ class Tribunal (models.Model):
     )
 
     nombre = models.CharField(max_length=200)
-    ubicacion = models.CharField(max_length=200)
+    ubicacion = models.CharField(max_length=300)
     estado = models.CharField(max_length=50, choices=ESTADO_CHOICES)
+
+    class Meta:
+        db_table = 'Tribunal'
+        ordering = ['-estado']
+        verbose_name = "tribunal"
+        verbose_name_plural = "tribunales"
+
+    def __str__(self):
+        return self.estado
