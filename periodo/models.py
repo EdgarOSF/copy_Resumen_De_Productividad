@@ -5,7 +5,7 @@ from tribunal.models import Tribunal
 
 class Periodo (models.Model):
     fecha_inicio_periodo = models.DateField(auto_now=False, auto_now_add=False)
-    fecha_termino = models.DateField(auto_now=False, auto_now_add=False)
+    fecha_termino = models.DateField(auto_now=False, auto_now_add=False, null=True, blank=True)
     fk_tribunal = models.ForeignKey(Tribunal, on_delete=models.CASCADE)
 
     class Meta:

@@ -37,6 +37,7 @@ class Tribunal (models.Model):
         ("veracruz", "Veracruz"),
         ("yucatan", "Yucatán"),
         ("zacatecas", "Zacatecas"),
+        ("texcoco", "Texcoco"),
     )
 
     nombre = models.CharField(max_length=200)
@@ -50,4 +51,4 @@ class Tribunal (models.Model):
         verbose_name_plural = "tribunales"
 
     def __str__(self):
-        return self.estado
+        return f'{self.nombre} ({self.estado})'
