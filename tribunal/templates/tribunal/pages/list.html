@@ -1,0 +1,18 @@
+{% extends 'tribunal/base.html' %}
+
+
+{% block title %}Tribunal-List{% endblock title %}
+
+
+{% block content %}
+
+<h1>Lista de Tribunales</h1>
+{% for tribunal in tribunales %}
+<h2>
+    <a href="{{tribunal.get_absolute_url}}">
+        {{ tribunal }}
+    </a>
+</h2>
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'tribunal/base.html' %}
+
+
+{% block title %}Tribunal-Detail{% endblock title %}
+
+
+{% block content %}
+<h1>Tribunal Detail</h1>
+<ul>
+    <li>{{tribunal.nombre}}</li>
+    <li>{{tribunal.ubicacion}}</li>
+    <li>{{tribunal.estado}}</li>
+</ul>
+{% endblock content %}
