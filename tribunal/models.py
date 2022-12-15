@@ -55,6 +55,6 @@ class Tribunal (models.Model):
         return f'{self.nombre} ({self.estado})'
 
     def get_absolute_url(self):
-        return reverse('tribunal:tribunal_detail', args=[self.id])
+        return reverse('tribunal:detail', args=[self.id])
 
     

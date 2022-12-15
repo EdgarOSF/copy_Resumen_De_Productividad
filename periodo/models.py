@@ -14,6 +14,6 @@ class Periodo (models.Model):
         ordering = ['-fecha_inicio_periodo']
         verbose_name_plural = "periodos"
 
-        def __str__(self):
-            return self.fecha_inicio_periodo
+    def __str__(self):
+        return f'{self.fecha_inicio_periodo} - {self.fk_tribunal}'
 
