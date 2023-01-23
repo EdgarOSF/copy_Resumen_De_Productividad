@@ -1,12 +1,7 @@
 from django.contrib import admin
-from .models import Resumen
+from .models import Resumen_Año, Resumen_Entrega, Resumen_Recepcion
 
 
-@admin.register(Resumen)
-class ResumenAdmin(admin.ModelAdmin):
-    list_display = ['anio', 'sentencias', 'itinerancias', 'convenios', 'ingresos',
-                    'asuntos_en_tramite', 'asuntos_turnados_a_sentencia', 'archivados', 'updated', 'fk_periodo']
-    list_filter = ['anio', 'sentencias', 'itinerancias', 'convenios', 'ingresos',
-                   'asuntos_en_tramite', 'asuntos_turnados_a_sentencia', 'archivados', 'updated', 'fk_periodo']
-    search_fields = ['anio', 'sentencias', 'itinerancias', 'convenios', 'ingresos',
-                     'asuntos_en_tramite', 'asuntos_turnados_a_sentencia', 'archivados', 'updated', 'fk_periodo']
+admin.site.register(Resumen_Año)
+admin.site.register(Resumen_Recepcion)
+admin.site.register(Resumen_Entrega)
