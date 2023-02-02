@@ -42,7 +42,7 @@ class Tribunal (models.Model):
     )
 
     nombre = models.CharField(max_length=200)
-    ubicacion = models.CharField(max_length=300)
+    municipio = models.CharField(max_length=100)
     estado = models.CharField(max_length=50, choices=ESTADO_CHOICES)
 
     class Meta:

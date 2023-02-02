@@ -29,7 +29,6 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = ['*']
 
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,7 +46,7 @@ INSTALLED_APPS = [
     'resumen.apps.ResumenConfig',
     'dashboard.apps.DashboardConfig',
 
-    #external apps
+    # external apps
     'crispy_forms',
 ]
 
@@ -136,7 +135,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Email server configuration
 EMAIL_HOST = 'smtp.gmail.com'

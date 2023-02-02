@@ -1,0 +1,74 @@
+[
+{
+  "model": "tribunal.tribunal",
+  "pk": 1,
+  "fields": {
+    "nombre": "Tribunal Unitario Agrario #23",
+    "municipio": "Texcoco",
+    "estado": "estado_de_mexico"
+  }
+},
+{
+  "model": "tribunal.tribunal",
+  "pk": 2,
+  "fields": {
+    "nombre": "Tribunal Unitario Agrario #29",
+    "municipio": "centro",
+    "estado": "tabasco"
+  }
+},
+{
+  "model": "tribunal.tribunal",
+  "pk": 3,
+  "fields": {
+    "nombre": "Tribunal Unitario Agrario #55",
+    "municipio": "Pachuca de Soto",
+    "estado": "hidalgo"
+  }
+},
+{
+  "model": "tribunal.tribunal",
+  "pk": 4,
+  "fields": {
+    "nombre": "Tribunal Unitario Agrario #49",
+    "municipio": "Cuautla",
+    "estado": "morelos"
+  }
+},
+{
+  "model": "periodo.periodo",
+  "pk": 1,
+  "fields": {
+    "fecha_inicio": "2021-04-01",
+    "fecha_termino": null,
+    "fk_tribunal": 1
+  }
+},
+{
+  "model": "periodo.periodo",
+  "pk": 2,
+  "fields": {
+    "fecha_inicio": "2011-12-15",
+    "fecha_termino": "2015-01-31",
+    "fk_tribunal": 4
+  }
+},
+{
+  "model": "periodo.periodo",
+  "pk": 3,
+  "fields": {
+    "fecha_inicio": "2015-02-01",
+    "fecha_termino": "2018-05-06",
+    "fk_tribunal": 3
+  }
+},
+{
+  "model": "periodo.periodo",
+  "pk": 4,
+  "fields": {
+    "fecha_inicio": "2018-05-07",
+    "fecha_termino": "2021-03-31",
+    "fk_tribunal": 2
+  }
+}
+]

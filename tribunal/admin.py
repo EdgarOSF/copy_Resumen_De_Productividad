@@ -4,6 +4,6 @@ from .models import Tribunal
 
 @admin.register(Tribunal)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['nombre', 'ubicacion', 'estado']
-    list_filter = ['nombre', 'ubicacion', 'estado']
-    search_fields = ['nombre', 'ubicacion', 'estado']
+    list_display = ['nombre', 'municipio', 'estado']
+    list_filter = ['nombre', 'municipio', 'estado']
+    search_fields = ['nombre', 'municipio', 'estado']
