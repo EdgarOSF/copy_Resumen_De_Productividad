@@ -1,74 +1,752 @@
 [
-  {
-    "model": "tribunal.tribunal",
-    "pk": 1,
-    "fields": {
-      "nombre": "Tribunal Unitario Agrario #23",
-      "municipio": "Texcoco",
-      "estado": "estado_de_mexico"
-    }
-  },
-  {
-    "model": "tribunal.tribunal",
-    "pk": 2,
-    "fields": {
-      "nombre": "Tribunal Unitario Agrario #29",
-      "municipio": "centro",
-      "estado": "tabasco"
-    }
-  },
-  {
-    "model": "tribunal.tribunal",
-    "pk": 3,
-    "fields": {
-      "nombre": "Tribunal Unitario Agrario #55",
-      "municipio": "Pachuca de Soto",
-      "estado": "hidalgo"
-    }
-  },
-  {
-    "model": "tribunal.tribunal",
-    "pk": 4,
-    "fields": {
-      "nombre": "Tribunal Unitario Agrario #49",
-      "municipio": "Cuautla",
-      "estado": "morelos"
-    }
-  },
-  {
-    "model": "periodo.periodo",
-    "pk": 1,
-    "fields": {
-      "fecha_inicio": "2021-04-01",
-      "fecha_termino": null,
-      "fk_tribunal": 1
-    }
-  },
-  {
-    "model": "periodo.periodo",
-    "pk": 2,
-    "fields": {
-      "fecha_inicio": "2011-12-15",
-      "fecha_termino": "2015-01-31",
-      "fk_tribunal": 4
-    }
-  },
-  {
-    "model": "periodo.periodo",
-    "pk": 3,
-    "fields": {
-      "fecha_inicio": "2015-02-01",
-      "fecha_termino": "2018-05-06",
-      "fk_tribunal": 3
-    }
-  },
-  {
-    "model": "periodo.periodo",
-    "pk": 4,
-    "fields": {
-      "fecha_inicio": "2018-05-07",
-      "fecha_termino": "2021-03-31",
-      "fk_tribunal": 2
-    }
+{
+  "model": "resumen.resumen_año",
+  "pk": 1,
+  "fields": {
+    "sentencias": "1309",
+    "convenios": "23",
+    "ingresos": "1329",
+    "archivados": "1330",
+    "asuntos_turnados_sentencia": "99",
+    "updated": "2023-02-02T21:24:41.877Z",
+    "anio": "2022",
+    "itinerancias": null,
+    "fk_periodo": 1
   }
+},
+{
+  "model": "resumen.resumen_año",
+  "pk": 2,
+  "fields": {
+    "sentencias": "1251",
+    "convenios": "18",
+    "ingresos": "968",
+    "archivados": "1280",
+    "asuntos_turnados_sentencia": "235",
+    "updated": "2023-02-02T21:24:18.659Z",
+    "anio": "2021",
+    "itinerancias": "0",
+    "fk_periodo": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 1,
+  "fields": {
+    "mes": "ENE",
+    "cantidad": "1067",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 2,
+  "fields": {
+    "mes": "FEB",
+    "cantidad": "1008",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 3,
+  "fields": {
+    "mes": "MAR",
+    "cantidad": "944",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 4,
+  "fields": {
+    "mes": "ABR",
+    "cantidad": "925",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 5,
+  "fields": {
+    "mes": "MAY",
+    "cantidad": "877",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 6,
+  "fields": {
+    "mes": "JUN",
+    "cantidad": "861",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 7,
+  "fields": {
+    "mes": "JUL",
+    "cantidad": "822",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 8,
+  "fields": {
+    "mes": "AGO",
+    "cantidad": "778",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 9,
+  "fields": {
+    "mes": "SEP",
+    "cantidad": "756",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 10,
+  "fields": {
+    "mes": "OCT",
+    "cantidad": "693",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 11,
+  "fields": {
+    "mes": "NOV",
+    "cantidad": "670",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 12,
+  "fields": {
+    "mes": "DIC",
+    "cantidad": "663",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 13,
+  "fields": {
+    "mes": "ENE",
+    "cantidad": "656",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 14,
+  "fields": {
+    "mes": "FEB",
+    "cantidad": "637",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 15,
+  "fields": {
+    "mes": "MAR",
+    "cantidad": "613",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 16,
+  "fields": {
+    "mes": "ABR",
+    "cantidad": "593",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 17,
+  "fields": {
+    "mes": "MAY",
+    "cantidad": "573",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 18,
+  "fields": {
+    "mes": "JUN",
+    "cantidad": "541",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 19,
+  "fields": {
+    "mes": "JUL",
+    "cantidad": "520",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 20,
+  "fields": {
+    "mes": "AGO",
+    "cantidad": "517",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 21,
+  "fields": {
+    "mes": "SEP",
+    "cantidad": "506",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 22,
+  "fields": {
+    "mes": "OCT",
+    "cantidad": "494",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 23,
+  "fields": {
+    "mes": "NOV",
+    "cantidad": "487",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite_anteriores",
+  "pk": 24,
+  "fields": {
+    "mes": "DIC",
+    "cantidad": "462",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 1,
+  "fields": {
+    "mes": "ENE",
+    "cantidad": "1689",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 2,
+  "fields": {
+    "mes": "FEB",
+    "cantidad": "1611",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 3,
+  "fields": {
+    "mes": "MAR",
+    "cantidad": "1574",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 4,
+  "fields": {
+    "mes": "ABR",
+    "cantidad": "1572",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 5,
+  "fields": {
+    "mes": "MAY",
+    "cantidad": "1550",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 6,
+  "fields": {
+    "mes": "JUN",
+    "cantidad": "1541",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 7,
+  "fields": {
+    "mes": "JUL",
+    "cantidad": "1527",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 8,
+  "fields": {
+    "mes": "AGO",
+    "cantidad": "1491",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 9,
+  "fields": {
+    "mes": "SEP",
+    "cantidad": "1513",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 10,
+  "fields": {
+    "mes": "OCT",
+    "cantidad": "1418",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 11,
+  "fields": {
+    "mes": "NOV",
+    "cantidad": "1394",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 12,
+  "fields": {
+    "mes": "DIC",
+    "cantidad": "1377",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 13,
+  "fields": {
+    "mes": "ENE",
+    "cantidad": "1340",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 14,
+  "fields": {
+    "mes": "FEB",
+    "cantidad": "1424",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 15,
+  "fields": {
+    "mes": "MAR",
+    "cantidad": "1330",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 16,
+  "fields": {
+    "mes": "ABR",
+    "cantidad": "1350",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 17,
+  "fields": {
+    "mes": "MAY",
+    "cantidad": "1310",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 18,
+  "fields": {
+    "mes": "JUN",
+    "cantidad": "1367",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 19,
+  "fields": {
+    "mes": "JUL",
+    "cantidad": "1347",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 20,
+  "fields": {
+    "mes": "AGO",
+    "cantidad": "1343",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 21,
+  "fields": {
+    "mes": "SEP",
+    "cantidad": "1390",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 22,
+  "fields": {
+    "mes": "OCT",
+    "cantidad": "1366",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 23,
+  "fields": {
+    "mes": "NOV",
+    "cantidad": "1397",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_en_tramite",
+  "pk": 24,
+  "fields": {
+    "mes": "DIC",
+    "cantidad": "1389",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 1,
+  "fields": {
+    "mes": "ENE",
+    "cantidad": "297",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 2,
+  "fields": {
+    "mes": "FEB",
+    "cantidad": "261",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 3,
+  "fields": {
+    "mes": "MAR",
+    "cantidad": "258",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 4,
+  "fields": {
+    "mes": "ABR",
+    "cantidad": "298",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 5,
+  "fields": {
+    "mes": "MAY",
+    "cantidad": "274",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 6,
+  "fields": {
+    "mes": "JUN",
+    "cantidad": "281",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 7,
+  "fields": {
+    "mes": "JUL",
+    "cantidad": "197",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 8,
+  "fields": {
+    "mes": "AGO",
+    "cantidad": "238",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 9,
+  "fields": {
+    "mes": "SEP",
+    "cantidad": "240",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 10,
+  "fields": {
+    "mes": "OCT",
+    "cantidad": "232",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 11,
+  "fields": {
+    "mes": "NOV",
+    "cantidad": "214",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 12,
+  "fields": {
+    "mes": "DIC",
+    "cantidad": "235",
+    "fk_resumen": 2
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 13,
+  "fields": {
+    "mes": "ENE",
+    "cantidad": "166",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 14,
+  "fields": {
+    "mes": "FEB",
+    "cantidad": "176",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 15,
+  "fields": {
+    "mes": "MAR",
+    "cantidad": "185",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 16,
+  "fields": {
+    "mes": "ABR",
+    "cantidad": "146",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 17,
+  "fields": {
+    "mes": "MAY",
+    "cantidad": "140",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 18,
+  "fields": {
+    "mes": "JUN",
+    "cantidad": "148",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 19,
+  "fields": {
+    "mes": "JUL",
+    "cantidad": "129",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 20,
+  "fields": {
+    "mes": "AGO",
+    "cantidad": "119",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 21,
+  "fields": {
+    "mes": "SEP",
+    "cantidad": "83",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 22,
+  "fields": {
+    "mes": "OCT",
+    "cantidad": "124",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 23,
+  "fields": {
+    "mes": "NOV",
+    "cantidad": "94",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "resumen.asuntos_turnados_a_sentencia",
+  "pk": 24,
+  "fields": {
+    "mes": "DIC",
+    "cantidad": "99",
+    "fk_resumen": 1
+  }
+},
+{
+  "model": "tribunal.tribunal",
+  "pk": 1,
+  "fields": {
+    "nombre": "Tribunal Unitario Agrario #23",
+    "municipio": "Texcoco",
+    "estado": "estado_de_mexico"
+  }
+},
+{
+  "model": "tribunal.tribunal",
+  "pk": 2,
+  "fields": {
+    "nombre": "Tribunal Unitario Agrario #29",
+    "municipio": "centro",
+    "estado": "tabasco"
+  }
+},
+{
+  "model": "tribunal.tribunal",
+  "pk": 3,
+  "fields": {
+    "nombre": "Tribunal Unitario Agrario #55",
+    "municipio": "Pachuca de Soto",
+    "estado": "hidalgo"
+  }
+},
+{
+  "model": "tribunal.tribunal",
+  "pk": 4,
+  "fields": {
+    "nombre": "Tribunal Unitario Agrario #49",
+    "municipio": "Cuautla",
+    "estado": "morelos"
+  }
+},
+{
+  "model": "periodo.periodo",
+  "pk": 1,
+  "fields": {
+    "fecha_inicio": "2021-04-01",
+    "fecha_termino": null,
+    "fk_tribunal": 1
+  }
+},
+{
+  "model": "periodo.periodo",
+  "pk": 2,
+  "fields": {
+    "fecha_inicio": "2011-12-15",
+    "fecha_termino": "2015-01-31",
+    "fk_tribunal": 4
+  }
+},
+{
+  "model": "periodo.periodo",
+  "pk": 3,
+  "fields": {
+    "fecha_inicio": "2015-02-01",
+    "fecha_termino": "2018-05-06",
+    "fk_tribunal": 3
+  }
+},
+{
+  "model": "periodo.periodo",
+  "pk": 4,
+  "fields": {
+    "fecha_inicio": "2018-05-07",
+    "fecha_termino": "2021-03-31",
+    "fk_tribunal": 2
+  }
+}
 ]

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
     # others apps
     'tribunal.apps.TribunalConfig',
@@ -126,6 +127,10 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+FORMAT_MODULE_PATH = [
+    'resumen.formats',
+]
 
 
 # Static files (CSS, JavaScript, Images)

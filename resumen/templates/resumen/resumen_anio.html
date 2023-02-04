@@ -1,0 +1,24 @@
+{% extends 'resumen/base.html' %}
+{% load humanize %}
+
+{% block title %}Resumen Estadistico{% endblock title %}
+
+{% block content %}
+{% for resumen in resumen_porcentaje %}
+<div class="row">
+    <p>{{resumen}}</p>
+    <ul>
+        <li>{{resumen.sentencias|intcomma}}</li>
+        <li>{{resumen.convenios|intcomma}}</li>
+        <li>{{resumen.ingresos|intcomma}}</li>
+        <li>{{resumen.archivados|intcomma}}</li>
+        <li>{{resumen.asuntos_turnados_sentencia|intcomma}}</li>
+        <li>{{resumen.anio}}</li>
+        <li>{{resumen.itinerancias|default:0}}</li>
+        <li>{{resumen.fk_periodo}}</li>
+        <li>{{resumen.porcentaje}}</li>
+    </ul>
+</div>
+{% endfor %}
+
+{% endblock content %}
