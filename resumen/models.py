@@ -120,6 +120,31 @@ class Resumen_Año (Resumen):
     def __str__(self):
         return str(self.anio)
 
+    # @property
+    def primer_mes_asuntos_anteriores(self):
+        primer_mes = Asuntos_En_Tramite_Anteriores.objects.get(fk_resumen = self.id, mes = 'ENE')
+        return primer_mes.cantidad
+
+    def ultimo_mes_asuntos_anteriores(self):
+        ultimo_mes = Asuntos_En_Tramite_Anteriores.objects.get(fk_resumen = self.id, mes = 'DIC')
+        return ultimo_mes.cantidad
+
+    def porcentaje_asuntos_anteriores(self):
+        primer_mes = self.get_first_month()
+        ultimo_mes = self.get_last_month()
+        diferencia = ultimo_mes - primer_mes
+        porcentaje = diferencia / primer_mes
+        return f'{porcentaje:.1%}'
+
+    def primer_mes_asuntos_tramite(self):
+        primer_mes = Asuntos_En_Tramite.objects.get(fk_resumen = self.id, mes = 'ENE')
+        return primer_mes.cantidad
+
+    def ultimo_mes_asuntos_tramite(self):
+        ultimo_mes = Asuntos_En_Tramite.objects.get(fk_resumen = self.id, mes = 'DIC')
+        return ultimo_mes.cantidad
+
+
 
 """ Modelo Resumen_Entrega """
 class Resumen_Entrega (Resumen):

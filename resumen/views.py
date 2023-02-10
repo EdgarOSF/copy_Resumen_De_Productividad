@@ -29,13 +29,15 @@ class ResumenTUADetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        props = Resumen_Año.asuntos.resumen_calculado(self.get_object())
+        val1 = self.get_object().porcentaje_asuntos_anteriores()
+        print('porcentaje: ', val1)
+        # props = Resumen_Año.asuntos.resumen_calculado(self.get_object())
         asuntos_anteriores = Asuntos_En_Tramite_Anteriores.objects.filter(fk_resumen = self.get_object())
         asuntos_tramite = Asuntos_En_Tramite.objects.filter(fk_resumen = self.get_object())
         asuntos_turnados = Asuntos_Turnados_A_Sentencia.objects.filter(fk_resumen = self.get_object())
         context.update(
             {
-                'resumen': props, 
+                # 'resumen': props, 
                 'asuntos_anteriores': asuntos_anteriores,
                 'asuntos_tramite': asuntos_tramite,
                 'asuntos_turnados': asuntos_turnados
