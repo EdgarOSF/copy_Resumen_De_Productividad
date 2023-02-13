@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'visita_inspeccion.apps.VisitaInspeccionConfig',
     'resumen.apps.ResumenConfig',
     'dashboard.apps.DashboardConfig',
+    'itinerancia.apps.ItineranciaConfig',
 
     # external apps
     'crispy_forms',

@@ -28,4 +28,4 @@ class AsuntosTurnadosASentenciaAdmin(admin.ModelAdmin):
 
 @admin.register(Resumen_Año)
 class ResumenAñoAdmin(admin.ModelAdmin):
-    list_display = ['fk_periodo','anio', 'sentencias', 'asuntos_turnados_sentencia', 'convenios', 'ingresos', 'archivados', 'itinerancias']
+    list_display = ['fk_periodo','anio', 'sentencias', 'asuntos_turnados_sentencia', 'convenios', 'ingresos', 'archivados']

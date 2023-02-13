@@ -4,6 +4,49 @@
 {% block title %}TUA 23 - Texcoco{% endblock title %}
 
 
+{% block extracss %}
+<style>
+    .dashboard .proyectadas-card .card-icon {
+  color: #4154f1;
+  background: #f6f6fe;
+}
+
+.dashboard .anteriores-card .card-icon {
+  color: #2eca6a;
+  background: #e0f8e9;
+}
+
+.dashboard .tramite-card .card-icon {
+  color: #ff771d;
+  background: #ffecdf;
+}
+
+.dashboard .turnadas-card .card-icon {
+  color: #055160;
+  background: #d8f7fd;
+}
+
+.dashboard .convenios-card .card-icon {
+  color: #0f5132;
+  background: #ddf9ec;
+}
+
+.dashboard .ingresos-card .card-icon {
+  color: #41464b;
+  background: #e9ebec;
+}
+
+.dashboard .archivados-card .card-icon {
+  color: #842029;
+  background: #f7dee0;
+}
+</style>
+    
+{% endblock extracss %}
+
+    
+
+
 {% block main %}
 <main id="main" class="main">
 
@@ -27,7 +70,7 @@
 
                     <!-- Sentencias Proyectadas Card -->
                     <div class="col-xxl-4 col-md-6">
-                        <div class="card info-card sales-card">
+                        <div class="card info-card proyectadas-card">
 
                             <div class="filter">
                                 <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
@@ -48,23 +91,23 @@
                                 <div class="d-flex align-items-center">
                                     <div
                                         class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-cart"></i>
+                                        <i class="bi bi-file-text"></i>
                                     </div>
                                     <div class="ps-3">
                                         <h6>{{resumen.sentencias|intcomma}}</h6>
-                                        <span class="text-success small pt-1 fw-bold">12%</span> <span
-                                            class="text-muted small pt-2 ps-1">increase</span>
+                                        <!-- <span class="text-success small pt-1 fw-bold">12%</span> 
+                                        <span class="text-muted small pt-2 ps-1">increase</span> -->
 
                                     </div>
                                 </div>
                             </div>
 
                         </div>
-                    </div><!-- End Sentencias Proyectadas Card -->
+                    </div>
 
                     <!-- Asuntos En Tramite Anteriores Y 2019 Card -->
                     <div class="col-xxl-4 col-md-6">
-                        <div class="card info-card revenue-card">
+                        <div class="card info-card anteriores-card">
 
                             <div class="filter">
                                 <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
@@ -84,24 +127,24 @@
                                 <div class="d-flex align-items-center">
                                     <div
                                         class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-currency-dollar"></i>
+                                        <i class="bi bi-file-text"></i>
                                     </div>
                                     <div class="ps-3">
                                         <h6>{{resumen.porcentaje_asuntos_anteriores}}</h6>
-                                        <span class="text-success small pt-1 fw-bold">8%</span> <span
-                                            class="text-muted small pt-2 ps-1">increase</span>
+                                        <!-- <span class="text-success small pt-1 fw-bold">0%</span> <span
+                                            class="text-muted small pt-2 ps-1">increase</span> -->
 
                                     </div>
                                 </div>
                             </div>
 
                         </div>
-                    </div><!-- End Asuntos En Tramite Anteriores Y 2019 Card -->
+                    </div>
 
                     <!-- Asuntos En Tramite Card -->
                     <div class="col-xxl-4 col-xl-12">
 
-                        <div class="card info-card customers-card">
+                        <div class="card info-card tramite-card">
 
                             <div class="filter">
                                 <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
@@ -115,18 +158,19 @@
                                     <li><a class="dropdown-item" href="#">This Year</a></li>
                                 </ul>
                             </div>
-                            
+
                             <div class="card-body">
                                 <h5 class="card-title">A. En Tramite <span>| Comparativo</span></h5>
 
                                 <div class="d-flex align-items-center">
                                     <div
                                         class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-people"></i>
+                                        <i class="bi bi-file-text"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>{{resumen.u_mes_asuntos_tramite|intcomma}}</h6>
-                                        {% if resumen.u_mes_asuntos_tramite|intcomma > resumen.p_mes_asuntos_tramite|intcomma %}
+                                        <h6><span class="h5">Ene:</span> {{resumen.primer_mes_asuntos_tramite|intcomma}}</h6>
+                                        <h6><span class="h5">Dic:</span> {{resumen.ultimo_mes_asuntos_tramite|intcomma}}</h6>
+                                        {% if resumen.ultimo_mes_asuntos_tramite|intcomma > resumen.primer_mes_asuntos_tramite|intcomma %}
                                         <span
                                             class="text-success small pt-1 fw-bold">{{resumen.porcentaje_asuntos_tramite}}</span>
                                         <span class="text-muted small pt-2 ps-1">aumentó</span>
@@ -135,18 +179,17 @@
                                             class="text-success small pt-1 fw-bold">{{resumen.porcentaje_asuntos_tramite}}</span>
                                         <span class="text-muted small pt-2 ps-1">disminuyó</span>
                                         {% endif %}
-
                                     </div>
                                 </div>
 
                             </div>
-                        </div>                       
+                        </div>
 
-                    </div><!-- End Asuntos En Tramite y Anteriores Card -->
+                    </div>
 
                     <!-- Asuntos Turnados A Sentencia Card -->
                     <div class="col-xxl-4 col-md-6">
-                        <div class="card info-card customers-card">
+                        <div class="card info-card turnadas-card">
 
                             <div class="filter">
                                 <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
@@ -154,43 +197,44 @@
                                     <li class="dropdown-header text-start">
                                         <h6>Filter</h6>
                                     </li>
-    
+
                                     <li><a class="dropdown-item" href="#">Today</a></li>
                                     <li><a class="dropdown-item" href="#">This Month</a></li>
                                     <li><a class="dropdown-item" href="#">This Year</a></li>
                                 </ul>
                             </div>
-    
+
                             <div class="card-body">
                                 <h5 class="card-title">A. Turn. A Sentencia <span>| Comparativo</span></h5>
-    
+
                                 <div class="d-flex align-items-center">
                                     <div
                                         class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-people"></i>
+                                        <i class="bi bi-file-text"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>{{resumen.u_mes_asuntos_tramite|intcomma}}</h6>
-                                        {% if resumen.u_mes_asuntos_tramite|intcomma > resumen.p_mes_asuntos_tramite|intcomma %}
+                                        <h6><span class="h5">Ene:</span> {{resumen.primer_mes_asuntos_turnados|intcomma}}</h6>
+                                        <h6><span class="h5">Dic:</span> {{resumen.ultimo_mes_asuntos_turnados|intcomma}}</h6>
+                                        {% if resumen.ultimo_mes_asuntos_tramite|intcomma > resumen.primer_mes_asuntos_tramite|intcomma %}
                                         <span
-                                            class="text-success small pt-1 fw-bold">{{resumen.porcentaje_asuntos_tramite}}</span>
-                                        <span class="text-muted small pt-2 ps-1">aumentó</span>
+                                            class="text-success small pt-1 fw-bold">{{resumen.porcentaje_asuntos_turnados}}</span>
+                                        <span class="text-muted small pt-2 ps-1">disminuyó</span>
                                         {% else %}
                                         <span
-                                            class="text-success small pt-1 fw-bold">{{resumen.porcentaje_asuntos_tramite}}</span>
-                                        <span class="text-muted small pt-2 ps-1">disminuyó</span>
+                                            class="text-success small pt-1 fw-bold">{{resumen.porcentaje_asuntos_turnados}}</span>
+                                        <span class="text-muted small pt-2 ps-1">aumentó/span>
                                         {% endif %}
-    
+
                                     </div>
                                 </div>
-    
+
                             </div>
                         </div>
-                    </div> <!-- End Asuntos En Tramite y Anteriores Card -->
+                    </div>
 
                     <!-- Convenios Card -->
                     <div class="col-xxl-4 col-md-6">
-                        <div class="card info-card customers-card">
+                        <div class="card info-card convenios-card">
 
                             <div class="filter">
                                 <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
@@ -198,34 +242,34 @@
                                     <li class="dropdown-header text-start">
                                         <h6>Filter</h6>
                                     </li>
-    
+
                                     <li><a class="dropdown-item" href="#">Today</a></li>
                                     <li><a class="dropdown-item" href="#">This Month</a></li>
                                     <li><a class="dropdown-item" href="#">This Year</a></li>
                                 </ul>
                             </div>
-    
+
                             <div class="card-body">
                                 <h5 class="card-title">Convenios <span>| Total</span></h5>
-    
+
                                 <div class="d-flex align-items-center">
                                     <div
                                         class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-people"></i>
+                                        <i class="bi bi-card-checklist"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>{{resumen.convenios|intcomma}}</h6>    
+                                        <h6>{{resumen.convenios|intcomma}}</h6>
                                     </div>
                                 </div>
-    
+
                             </div>
                         </div>
-                    </div> 
-                    <!-- Convenios Card -->
+                    </div>
+                    
 
                     <!-- Ingresos Card -->
                     <div class="col-xxl-4 col-md-6">
-                        <div class="card info-card customers-card">
+                        <div class="card info-card ingresos-card">
 
                             <div class="filter">
                                 <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
@@ -233,33 +277,33 @@
                                     <li class="dropdown-header text-start">
                                         <h6>Filter</h6>
                                     </li>
-    
+
                                     <li><a class="dropdown-item" href="#">Today</a></li>
                                     <li><a class="dropdown-item" href="#">This Month</a></li>
                                     <li><a class="dropdown-item" href="#">This Year</a></li>
                                 </ul>
                             </div>
-    
+
                             <div class="card-body">
                                 <h5 class="card-title">Ingresos <span>| Total</span></h5>
-    
+
                                 <div class="d-flex align-items-center">
                                     <div
                                         class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-people"></i>
+                                        <i class="bi bi-arrow-bar-down"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>{{resumen.ingresos|intcomma}}</h6>    
+                                        <h6>{{resumen.ingresos|intcomma}}</h6>
                                     </div>
-                                </div>    
+                                </div>
                             </div>
                         </div>
-                    </div> <!-- End Ingresos Card -->
+                    </div>
 
 
                     <!-- Archivados Card -->
                     <div class="col-xxl-4 col-md-6">
-                        <div class="card info-card customers-card">
+                        <div class="card info-card archivados-card">
 
                             <div class="filter">
                                 <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
@@ -267,29 +311,29 @@
                                     <li class="dropdown-header text-start">
                                         <h6>Filter</h6>
                                     </li>
-    
+
                                     <li><a class="dropdown-item" href="#">Today</a></li>
                                     <li><a class="dropdown-item" href="#">This Month</a></li>
                                     <li><a class="dropdown-item" href="#">This Year</a></li>
                                 </ul>
                             </div>
-    
+
                             <div class="card-body">
                                 <h5 class="card-title">Archivados <span>| Total</span></h5>
-    
+
                                 <div class="d-flex align-items-center">
                                     <div
                                         class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-people"></i>
+                                        <i class="bi bi-archive"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>{{resumen.archivados|intcomma}}</h6>    
+                                        <h6>{{resumen.archivados|intcomma}}</h6>
                                     </div>
-                                </div>    
+                                </div>
                             </div>
                         </div>
-                    </div> <!-- End Archivados Card -->
-                    
+                    </div>
+
 
                     <!-- Table -->
                     <div class="col-12">
@@ -314,13 +358,13 @@
                                 <!-- Line Chart -->
                                 <div id="reportsChart"></div>
 
-                                
+
                                 <!-- End Line Chart -->
 
                             </div>
 
                         </div>
-                    </div><!-- End Table Card -->
+                    </div>
 
                     <!-- Recent Sales -->
                     <div class="col-12">
@@ -374,7 +418,7 @@
                             </div>
 
                         </div>
-                    </div><!-- End Recent Sales -->
+                    </div>
 
                     <!-- Top Selling -->
                     <div class="col-12">
@@ -458,10 +502,10 @@
                             </div>
 
                         </div>
-                    </div><!-- End Top Selling -->
+                    </div>
 
                 </div>
-            </div><!-- End Left side columns -->
+            </div>
 
             <!-- Right side columns -->
             <div class="col-lg-4">
@@ -742,10 +786,10 @@
                     </div>
                 </div><!-- End News & Updates -->
 
-            </div><!-- End Right side columns -->
+            </div>
         </div>
     </section>
-</main><!-- End #main -->
+</main>
 {% endblock main %}
 
 
@@ -772,7 +816,6 @@
 
         console.log(Object.values(asuntos_anteriores));
         console.log(Object.values(asuntos_tramite));
-        console.log(Object.values(asuntos_turnados));
         console.log(Object.keys(asuntos_anteriores));
 
         document.addEventListener("DOMContentLoaded", () => {
@@ -783,10 +826,7 @@
                 }, {
                     name: 'Asuntos en tramite',
                     data: Object.values(asuntos_tramite)
-                }, {
-                    name: 'Asuntos turnados a sentencia',
-                    data: Object.values(asuntos_turnados)
-                },
+                }
                 ],
                 chart: {
                     height: 350,
@@ -814,10 +854,9 @@
                 // },
                 stroke: {
                     curve: 'straight',
-                    width: 2
+                    width: 3
                 },
                 xaxis: {
-                    // categoreies: Object.keys(asuntos_anteriores)
                     categories: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
                 },
                 // tooltip: {
@@ -831,6 +870,5 @@
 
 
 </script>
-    
+
 {% endblock extrajs %}
-    

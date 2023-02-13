@@ -105,7 +105,6 @@ class Resumen_Año_Manager(models.Manager):
 """ Modelo Resumen_Año """
 class Resumen_Año (Resumen):
     anio = models.DecimalField(max_digits=4, decimal_places=0)
-    itinerancias = models.DecimalField(max_digits=2, decimal_places=0, null=True, blank=True, default=0)
     fk_periodo = models.ForeignKey(
         Periodo, on_delete=models.CASCADE, related_name='resumen_anio_periodo')
     objects = models.Manager()
@@ -130,8 +129,8 @@ class Resumen_Año (Resumen):
         return ultimo_mes.cantidad
 
     def porcentaje_asuntos_anteriores(self):
-        primer_mes = self.get_first_month()
-        ultimo_mes = self.get_last_month()
+        primer_mes = self.primer_mes_asuntos_anteriores()
+        ultimo_mes = self.ultimo_mes_asuntos_anteriores()
         diferencia = ultimo_mes - primer_mes
         porcentaje = diferencia / primer_mes
         return f'{porcentaje:.1%}'
@@ -144,11 +143,31 @@ class Resumen_Año (Resumen):
         ultimo_mes = Asuntos_En_Tramite.objects.get(fk_resumen = self.id, mes = 'DIC')
         return ultimo_mes.cantidad
 
+    def porcentaje_asuntos_tramite(self):
+        primer_mes = self.primer_mes_asuntos_tramite()
+        ultimo_mes = self.ultimo_mes_asuntos_tramite()
+        diferencia = ultimo_mes - primer_mes
+        porcentaje = diferencia / primer_mes
+        return f'{porcentaje:.1%}'
+
+    def primer_mes_asuntos_turnados(self):
+        primer_mes = Asuntos_Turnados_A_Sentencia.objects.get(fk_resumen = self.id, mes = 'ENE')
+        return primer_mes.cantidad
+
+    def ultimo_mes_asuntos_turnados(self):
+        ultimo_mes = Asuntos_Turnados_A_Sentencia.objects.get(fk_resumen = self.id, mes = 'DIC')
+        return ultimo_mes.cantidad
+
+    def porcentaje_asuntos_turnados(self):
+        primer_mes = self.primer_mes_asuntos_turnados()
+        ultimo_mes = self.ultimo_mes_asuntos_turnados()
+        diferencia = ultimo_mes - primer_mes
+        porcentaje = diferencia / primer_mes
+        return f'{porcentaje:.1%}'
 
 
 """ Modelo Resumen_Entrega """
 class Resumen_Entrega (Resumen):
-    itinerancias = models.DecimalField(max_digits=2, decimal_places=0)
     fk_periodo = models.ForeignKey(
         Periodo, on_delete=models.CASCADE, related_name='resumen_entrega_periodo')
 
@@ -256,16 +275,6 @@ class Asuntos_En_Tramite(models.Model):
         Resumen_Año, on_delete=models.CASCADE, related_name='asuntosTramite_resumen')
 
 
-""" Modelo Asuntos_En_Tramite_Anteriores """
-class Asuntos_En_Tramite_Anteriores(models.Model):
-    mes = models.CharField(max_length=15, choices=MESES)
-    cantidad = models.DecimalField(max_digits=4, decimal_places=0)
-    objects = models.Manager()
-    asuntos_manager = AsuntosAnterioresManager()
-    fk_resumen = models.ForeignKey(
-        Resumen_Año, on_delete=models.CASCADE, related_name='asuntosAnteriores_resumen')
-
-
 class AsuntosTurnadosASentenciaQuerySet(models.QuerySet):
     def primer_mes(self, resumen):
         return self.get(fk_resumen=resumen, mes='ENE').cantidad
@@ -294,7 +303,6 @@ class AsuntosTurnadosASentenciaManager(models.Manager):
         primer_mes = self.get_primer_mes(resumen)
         porcentaje = diferencia / primer_mes
         return f'{porcentaje:.1%}'
-
 
 
 """ Modelo Asuntos_Turnados_A_Sentencia """
