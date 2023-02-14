@@ -105,8 +105,7 @@ class Resumen_Año_Manager(models.Manager):
 """ Modelo Resumen_Año """
 class Resumen_Año (Resumen):
     anio = models.DecimalField(max_digits=4, decimal_places=0)
-    fk_periodo = models.ForeignKey(
-        Periodo, on_delete=models.CASCADE, related_name='resumen_anio_periodo')
+    fk_periodo = models.ForeignKey(Periodo, on_delete=models.CASCADE, related_name='resumen_anio_periodo')
     objects = models.Manager()
     asuntos = Resumen_Año_Manager()
 

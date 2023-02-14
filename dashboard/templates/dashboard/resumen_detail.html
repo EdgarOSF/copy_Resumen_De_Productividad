@@ -384,32 +384,26 @@
                             </div>
 
                             <div class="card-body">
-                                <h5 class="card-title">Resumen Por Año <span>| Hoy</span></h5>
+                                <h5 class="card-title">Itinerancias <span>| Realizadas/año</span></h5>
 
-                                <table class="table table-borderless text-center datatable">
+                                <table class="table table-borderless text-start datatable">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Año</th>
-                                            <th scope="col">Sentencias Proyectadas</th>
-                                            <th scope="col">A. en Tramite Anteriores y 2019</th>
-                                            <th scope="col">A. Turnandos a Sentencia</th>
-                                            <th scope="col">Convenios</th>
-                                            <th scope="col">Ingresos</th>
-                                            <th scope="col">Archivos</th>
-                                            <!-- <th scope="col">A. en Tramite</th> -->
+                                            <th scope="col">Fecha</th>
+                                            <th scope="col">Municipio/Sede</th>
+                                            <th scope="col">Poblado/Sede</th>
+                                            <th scope="col">Total/Asuntos</th>
+                                            <th scope="col">Sentencias</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for resumen in resumen_porcentaje %}
+                                        {% for itinerancia in itinerancias %}
                                         <tr>
-                                            <th scope="row"><a href="#">{{resumen.anio}}</a></th>
-                                            <td>{{resumen.sentencias|intcomma}}</td>
-                                            <td><span class="badge bg-success">{{resumen.porcentaje}}</span></td>
-                                            <td class="text-success">{{resumen.asuntos_turnados_sentencia|intcomma}}
-                                            </td>
-                                            <td>{{resumen.convenios|intcomma}}</td>
-                                            <td>{{resumen.ingresos|intcomma}}</td>
-                                            <td class="text-success">{{resumen.archivados|intcomma}}</td>
+                                            <td>{{itinerancia.fecha}}</td>
+                                            <td>{{itinerancia.municipio_sede}}</td>
+                                            <td>{{itinerancia.poblado_sede}}</td>
+                                            <td>{{itinerancia.total_asuntos}}</td>
+                                            <td>{{itinerancia.sentencias}}</td>
                                         </tr>
                                         {% endfor %}
                                     </tbody>
@@ -810,13 +804,8 @@
         asuntos_tramite['{{asunto.mes}}'] = '{{asunto.cantidad}}'
         '{% endfor %}'
 
-        '{% for asunto in asuntos_turnados %}'
-        asuntos_turnados['{{asunto.mes}}'] = '{{asunto.cantidad}}'
-        '{% endfor %}'
-
         console.log(Object.values(asuntos_anteriores));
         console.log(Object.values(asuntos_tramite));
-        console.log(Object.keys(asuntos_anteriores));
 
         document.addEventListener("DOMContentLoaded", () => {
             new ApexCharts(document.querySelector("#reportsChart"), {
