@@ -34,7 +34,13 @@ class ResumenTUADetailView(DetailView):
 
     model = Resumen_Año
     context_object_name = 'resumen'
+    slug_field = 'anio'
     template_name = 'dashboard/resumen_detail.html'
+
+    def get_object(self, queryset=None):
+        anio = self.kwargs.get('anio')
+        resumen = self.model.objects.get(anio=anio)
+        return resumen
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

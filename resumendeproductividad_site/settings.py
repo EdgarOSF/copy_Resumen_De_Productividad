@@ -169,4 +169,4 @@ EMAIL_USE_TLS = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cache time to live is 5 minutes
-CACHE_TTL = 60 * 1
+CACHE_TTL = 0

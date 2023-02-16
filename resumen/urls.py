@@ -6,5 +6,5 @@ app_name = 'resumen'
 
 urlpatterns = [
     path('a/', ResumenListView.as_view(), name='list'),
-    path('<int:pk>/', ResumenTUADetailView.as_view(), name='resumen-detail'),
+    path('<int:anio>/', ResumenTUADetailView.as_view(), name='resumen-detail'),
 ]
