@@ -2,6 +2,8 @@ from django.db import models
 from django.db.models import Value
 
 from periodo.models import Periodo
+from visita_inspeccion.models import VisitaInspeccion
+from itinerancia.models import Itinerancia
 
 """ Modelo Abstracto Resumen """
 class Resumen (models.Model):
@@ -117,6 +119,12 @@ class Resumen_Año (Resumen):
 
     def __str__(self):
         return str(self.anio)
+    
+    def visitas_de_inspeccion(self):
+        return VisitaInspeccion.objects.filter(fecha_realizacion__year = self.anio )
+    
+    def itinerancias(self):
+        return Itinerancia.objects.filter(fecha__year = self.anio)
 
     # @property
     def primer_mes_asuntos_anteriores(self):

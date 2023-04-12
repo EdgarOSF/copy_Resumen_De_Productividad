@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from django.views.generic.detail import DetailView
 
-# Create your views here.
+from .models import Itinerancia
+
+
+class ItineranciaDetailView(DetailView):
+    model = Itinerancia
+    context_object_name = 'itinerancia'

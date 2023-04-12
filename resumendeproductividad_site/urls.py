@@ -23,5 +23,7 @@ urlpatterns = [
     path('', include('dashboard.urls', namespace='dashboard')),
     path('tribunal/', include('tribunal.urls', namespace='tribunal')),
     path('resumen/', include('resumen.urls'), name='resumen'),
+    path('itinerancia/', include('itinerancia.urls')),
+    path('visita/', include('visita_inspeccion.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

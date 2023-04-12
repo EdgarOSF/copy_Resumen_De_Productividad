@@ -7,44 +7,44 @@
 {% block extracss %}
 <style>
     .dashboard .proyectadas-card .card-icon {
-  color: #4154f1;
-  background: #f6f6fe;
-}
+        color: #4154f1;
+        background: #f6f6fe;
+    }
 
-.dashboard .anteriores-card .card-icon {
-  color: #2eca6a;
-  background: #e0f8e9;
-}
+    .dashboard .anteriores-card .card-icon {
+        color: #2eca6a;
+        background: #e0f8e9;
+    }
 
-.dashboard .tramite-card .card-icon {
-  color: #ff771d;
-  background: #ffecdf;
-}
+    .dashboard .tramite-card .card-icon {
+        color: #ff771d;
+        background: #ffecdf;
+    }
 
-.dashboard .turnadas-card .card-icon {
-  color: #055160;
-  background: #d8f7fd;
-}
+    .dashboard .turnadas-card .card-icon {
+        color: #055160;
+        background: #d8f7fd;
+    }
 
-.dashboard .convenios-card .card-icon {
-  color: #0f5132;
-  background: #ddf9ec;
-}
+    .dashboard .convenios-card .card-icon {
+        color: #0f5132;
+        background: #ddf9ec;
+    }
 
-.dashboard .ingresos-card .card-icon {
-  color: #41464b;
-  background: #e9ebec;
-}
+    .dashboard .ingresos-card .card-icon {
+        color: #41464b;
+        background: #e9ebec;
+    }
 
-.dashboard .archivados-card .card-icon {
-  color: #842029;
-  background: #f7dee0;
-}
+    .dashboard .archivados-card .card-icon {
+        color: #842029;
+        background: #f7dee0;
+    }
 </style>
-    
+
 {% endblock extracss %}
 
-    
+
 
 
 {% block main %}
@@ -168,8 +168,10 @@
                                         <i class="bi bi-file-text"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6><span class="h5">Ene:</span> {{resumen.primer_mes_asuntos_tramite|intcomma}}</h6>
-                                        <h6><span class="h5">Dic:</span> {{resumen.ultimo_mes_asuntos_tramite|intcomma}}</h6>
+                                        <h6><span class="h5">Ene:</span> {{resumen.primer_mes_asuntos_tramite|intcomma}}
+                                        </h6>
+                                        <h6><span class="h5">Dic:</span> {{resumen.ultimo_mes_asuntos_tramite|intcomma}}
+                                        </h6>
                                         {% if resumen.ultimo_mes_asuntos_tramite|intcomma > resumen.primer_mes_asuntos_tramite|intcomma %}
                                         <span
                                             class="text-success small pt-1 fw-bold">{{resumen.porcentaje_asuntos_tramite}}</span>
@@ -213,8 +215,10 @@
                                         <i class="bi bi-file-text"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6><span class="h5">Ene:</span> {{resumen.primer_mes_asuntos_turnados|intcomma}}</h6>
-                                        <h6><span class="h5">Dic:</span> {{resumen.ultimo_mes_asuntos_turnados|intcomma}}</h6>
+                                        <h6><span class="h5">Ene:</span>
+                                            {{resumen.primer_mes_asuntos_turnados|intcomma}}</h6>
+                                        <h6><span class="h5">Dic:</span>
+                                            {{resumen.ultimo_mes_asuntos_turnados|intcomma}}</h6>
                                         {% if resumen.ultimo_mes_asuntos_tramite|intcomma > resumen.primer_mes_asuntos_tramite|intcomma %}
                                         <span
                                             class="text-success small pt-1 fw-bold">{{resumen.porcentaje_asuntos_turnados}}</span>
@@ -223,7 +227,7 @@
                                         <span
                                             class="text-success small pt-1 fw-bold">{{resumen.porcentaje_asuntos_turnados}}</span>
                                         <span class="text-muted small pt-2 ps-1">aumentó/span>
-                                        {% endif %}
+                                            {% endif %}
 
                                     </div>
                                 </div>
@@ -265,7 +269,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
 
                     <!-- Ingresos Card -->
                     <div class="col-xxl-4 col-md-6">
@@ -366,7 +370,7 @@
                         </div>
                     </div>
 
-                    <!-- Recent Sales -->
+                    <!-- Itinerancias -->
                     <div class="col-12">
                         <div class="card recent-sales overflow-auto">
 
@@ -392,29 +396,29 @@
                                             <th scope="col">Fecha</th>
                                             <th scope="col">Municipio/Sede</th>
                                             <th scope="col">Poblado/Sede</th>
+                                            <th scope="col">Municipios Atendidos</th>
                                             <th scope="col">Total/Asuntos</th>
                                             <th scope="col">Sentencias</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for itinerancia in itinerancias %}
+                                        {% for itinerancia in resumen.itinerancias %}
                                         <tr>
-                                            <td>{{itinerancia.fecha}}</td>
+                                            <td><a href="{% url 'itinerancia:itinerancia_detail' itinerancia.pk %}" class="text-primary fw-bold">{{itinerancia.fecha}}</a></td>
                                             <td>{{itinerancia.municipio_sede}}</td>
                                             <td>{{itinerancia.poblado_sede}}</td>
+                                            <td>{{itinerancia.municipios_atendidos}}</td>
                                             <td class="text-success">{{itinerancia.total_asuntos}}</td>
                                             <td class="text-success">{{itinerancia.sentencias}}</td>
                                         </tr>
                                         {% endfor %}
                                     </tbody>
                                 </table>
-
                             </div>
-
                         </div>
                     </div>
 
-                    <!-- Top Selling -->
+                    <!-- Visitas de Inspeccion -->
                     <div class="col-12">
                         <div class="card top-selling overflow-auto">
 
@@ -432,64 +436,31 @@
                             </div>
 
                             <div class="card-body pb-0">
-                                <h5 class="card-title">Top Selling <span>| Today</span></h5>
+                                <h5 class="card-title">Visitas de Inspección <span>| Año</span></h5>
 
                                 <table class="table table-borderless">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Preview</th>
-                                            <th scope="col">Product</th>
-                                            <th scope="col">Price</th>
-                                            <th scope="col">Sold</th>
-                                            <th scope="col">Revenue</th>
+                                            <th scope="col">Fecha</th>
+                                            <th scope="col">Inicio de Período</th>
+                                            <th scope="col">Corte de Período</th>
+                                            <th scope="col">Resultado</th>
+                                            <th scope="col">Realizó</th>
+                                            <th scope="col">Duración</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {% for visita in resumen.visitas_de_inspeccion %}
                                         <tr>
-                                            <th scope="row"><a href="#"><img src="{% static 'img/product-1.jpg' %}"
-                                                        alt=""></a></th>
-                                            <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa voluptas
-                                                    nulla</a></td>
-                                            <td>$64</td>
-                                            <td class="fw-bold">124</td>
-                                            <td>$5,828</td>
+                                            <td><a href="{% url 'visita:visita_detail' visita.pk %}" class="text-primary fw-bold">{{visita.fecha_realizacion}}</a></td>
+                                            <td>{{visita.fecha_inicio_periodo_insp}}</td>
+                                            <td class="fw-bold">{{visita.fecha_corte_periodo_insp}}</td>
+                                            <td>{{visita.resultado|default:''}}</td>
+                                            <td>{{visita.realizo}}</td>
+                                            <td>{{visita.calculo_duracion}}</td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#"><img src="{% static 'img/product-2.jpg' %} "
-                                                        alt=""></a></th>
-                                            <td><a href="#" class="text-primary fw-bold">Exercitationem similique
-                                                    doloremque</a></td>
-                                            <td>$46</td>
-                                            <td class="fw-bold">98</td>
-                                            <td>$4,508</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#"><img src="{% static 'img/product-3.jpg' %} "
-                                                        alt=""></a></th>
-                                            <td><a href="#" class="text-primary fw-bold">Doloribus nisi
-                                                    exercitationem</a></td>
-                                            <td>$59</td>
-                                            <td class="fw-bold">74</td>
-                                            <td>$4,366</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#"><img src="{% static 'img/product-4.jpg' %} "
-                                                        alt=""></a></th>
-                                            <td><a href="#" class="text-primary fw-bold">Officiis quaerat sint rerum
-                                                    error</a></td>
-                                            <td>$32</td>
-                                            <td class="fw-bold">63</td>
-                                            <td>$2,016</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#"><img src="{% static 'img/product-5.jpg' %}"
-                                                        alt=""></a></th>
-                                            <td><a href="#" class="text-primary fw-bold">Sit unde debitis delectus
-                                                    repellendus</a></td>
-                                            <td>$79</td>
-                                            <td class="fw-bold">41</td>
-                                            <td>$3,239</td>
-                                        </tr>
+                                        {% endfor %}
+                                        
                                     </tbody>
                                 </table>
 
@@ -731,54 +702,7 @@
                     </div>
                 </div><!-- End Website Traffic -->
 
-                <!-- News & Updates Traffic -->
-                <div class="card">
-                    <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li class="dropdown-header text-start">
-                                <h6>Filter</h6>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Today</a></li>
-                            <li><a class="dropdown-item" href="#">This Month</a></li>
-                            <li><a class="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body pb-0">
-                        <h5 class="card-title">News &amp; Updates <span>| Today</span></h5>
-                        <div class="news">
-                            <div class="post-item clearfix">
-                                <img src="{% static 'img/news-1.jpg' %} " alt="">
-                                <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>
-                                <p>Sit recusandae non aspernatur laboriosam. Quia enim eligendi sed ut harum...</p>
-                            </div>
-                            <div class="post-item clearfix">
-                                <img src="{% static 'img/news-2.jpg' %} " alt="">
-                                <h4><a href="#">Quidem autem et impedit</a></h4>
-                                <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...
-                                </p>
-                            </div>
-                            <div class="post-item clearfix">
-                                <img src="{% static 'img/news-3.jpg' %} " alt="">
-                                <h4><a href="#">Id quia et et ut maxime similique occaecati ut</a></h4>
-                                <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...
-                                </p>
-                            </div>
-                            <div class="post-item clearfix">
-                                <img src="{% static 'img/news-4.jpg' %} " alt="">
-                                <h4><a href="#">Laborum corporis quo dara net para</a></h4>
-                                <p>Qui enim quia optio. Eligendi aut asperiores enim repellendusvel rerum cuder...
-                                </p>
-                            </div>
-                            <div class="post-item clearfix">
-                                <img src="{% static 'img/news-5.jpg' %} " alt="">
-                                <h4><a href="#">Et dolores corrupti quae illo quod dolor</a></h4>
-                                <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos
-                                    eius...</p>
-                            </div>
-                        </div><!-- End sidebar recent posts-->
-                    </div>
-                </div><!-- End News & Updates -->
+                
 
             </div>
         </div>

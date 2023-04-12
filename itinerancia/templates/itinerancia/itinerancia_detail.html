@@ -1,0 +1,76 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block title %}TUA 23 - Texcoco{% endblock title %}
+
+{% block main %}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>{{itinerancia.fk_periodo.fk_tribunal}}</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'dashboard:index' %}">Home</a></li>
+                <li class="breadcrumb-item active">{{itinerancia.fecha}}</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+
+            <div class="col-xl-8">
+
+                <div class="card">
+                    <div class="card-body pt-3">
+                        <h5 class="card-title">Detalles de Itinerancia</h5>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label fw-bold">Fecha</div>
+                                    <div class="col-lg-9 col-md-8">{{itinerancia.fecha}}</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label fw-bold">Municipio Sede</div>
+                                    <div class="col-lg-9 col-md-8">{{itinerancia.municipio_sede}}</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label fw-bold">Poblado Sede</div>
+                                    <div class="col-lg-9 col-md-8">{{itinerancia.poblado_sede}}</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label fw-bold">Total de Asuntos</div>
+                                    <div class="col-lg-9 col-md-8">{{itinerancia.total_asuntos}}</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label fw-bold">Sentencias</div>
+                                    <div class="col-lg-9 col-md-8">{{itinerancia.sentencias}}</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label fw-bold">Nucleos de Población</div>
+                                    <div class="col-lg-9 col-md-8">{{itinerancia.nucleos_poblacion}}</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label fw-bold">Periodo</div>
+                                    <div class="col-lg-9 col-md-8">{{itinerancia.fk_periodo}}</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label fw-bold">Municipios Atendidos</div>
+                                    <div class="col-lg-9 col-md-8">{{itinerancia.municipios_atendidos}}</div>
+                                </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock main %}

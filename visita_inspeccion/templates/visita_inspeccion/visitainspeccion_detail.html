@@ -1,0 +1,76 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block title %}TUA 23 - Texcoco{% endblock title %}
+
+{% block main %}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>{{visita.fk_periodo.fk_tribunal}}</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'dashboard:index' %}">Home</a></li>
+                <li class="breadcrumb-item active">{{visita.fecha_realizacion}}</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+
+            <div class="col-xl-8">
+
+                <div class="card">
+                    <div class="card-body pt-3">
+                        <h5 class="card-title">Detalles de Itinerancia</h5>
+
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 label fw-bold">Fecha de Realización</div>
+                                    <div class="col-lg-8 col-md-8">{{visita.fecha_realizacion}}</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 label fw-bold">Fecha de Inicio de Periodo</div>
+                                    <div class="col-lg-8 col-md-8">{{visita.fecha_inicio_periodo_insp}}</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 label fw-bold">Fecha de Termino de Periodo</div>
+                                    <div class="col-lg-8 col-md-8">{{visita.fecha_corte_periodo_insp}}</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 label fw-bold">Resultado</div>
+                                    <div class="col-lg-8 col-md-8">{{visita.resultado|default:''}}</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 label fw-bold">Realizó</div>
+                                    <div class="col-lg-8 col-md-8">{{visita.realizo}}</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 label fw-bold">Duración</div>
+                                    <div class="col-lg-8 col-md-8">{{visita.calculo_duracion}}</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 label fw-bold">Observaciones</div>
+                                    <div class="col-lg-8 col-md-8">{{visita.observaciones|default:''}}</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 label fw-bold">Periodo</div>
+                                    <div class="col-lg-8 col-md-8">{{visita.fk_periodo}}</div>
+                                </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock main %}
