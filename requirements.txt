@@ -1,10 +1,7 @@
-asgiref==3.5.2
 autopep8==2.0.0
 Django==4.1.4
-psycopg2==2.9.5
-psycopg2-binary==2.9.5
-pycodestyle==2.10.0
-python-decouple==3.6
-sqlparse==0.4.3
-tomli==2.0.1
+django-crispy-forms==1.14.0
 django-redis==5.0.0
+ipython==8.9.0
+python-decouple==3.6
+redis==4.5.1

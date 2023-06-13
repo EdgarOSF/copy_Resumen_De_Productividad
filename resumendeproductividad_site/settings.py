@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'itinerancia.apps.ItineranciaConfig',
 
     # external apps
-    'crispy_forms',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap'
