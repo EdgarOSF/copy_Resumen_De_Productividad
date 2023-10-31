@@ -5,10 +5,17 @@
 
 
 {% block content %}
-<h1>Tribunal Detail</h1>
-<ul>
-    <li>{{tribunal.nombre}}</li>
-    <li>{{tribunal.ubicacion}}</li>
-    <li>{{tribunal.estado}}</li>
-</ul>
+<h1>Tribunal Detalle</h1>
+<br>
+<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-header">{{tribunal.nombre}}</div>
+    <div class="card-body">
+      <h5 class="card-title">Información</h5>
+      <p class="card-text">{{tribunal.ubicacion}}</p>
+      <p class="card-text">{{tribunal.get_estado_display}}</p>
+    </div>
+</div>
+<a class="btn btn-success" href="{% url 'tribunal:index' %}">Atras</a>
+<a class="btn btn-info" href="{% url 'tribunal:update' tribunal.id %}">Modificar</a>
+<a class="btn btn-danger" href="{% url 'tribunal:delete' tribunal.id %}">Eliminar</a>
 {% endblock content %}

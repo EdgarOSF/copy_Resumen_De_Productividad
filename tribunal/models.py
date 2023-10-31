@@ -47,7 +47,7 @@ class Tribunal (models.Model):
 
     class Meta:
         db_table = 'Tribunal'
-        ordering = ['-estado']
+        # ordering = ['-estado']
         verbose_name = "tribunal"
         verbose_name_plural = "tribunales"
 

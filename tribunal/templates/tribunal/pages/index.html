@@ -1,0 +1,29 @@
+{% extends 'tribunal/base.html' %}
+
+{% block title %}Index{% endblock title %}
+
+
+{% block content %}
+<h1>Listado De Tribunales</h1>
+<br>
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Municipio</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tribunal in tribunales %}
+        <tr>
+            <th scope="row">{{tribunal.id}}</th>
+            <td><a href="{{tribunal.get_absolute_url}}">{{tribunal.nombre}}</a></td>
+            <td>{{tribunal.get_estado_display}}</td>
+            <td>{{tribunal.municipio}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
