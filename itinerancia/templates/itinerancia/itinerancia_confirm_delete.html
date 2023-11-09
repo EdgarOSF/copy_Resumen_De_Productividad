@@ -1,0 +1,11 @@
+{% extends 'itinerancia/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="post">{% csrf_token %}
+    <p class="h1">Estas seguro de eliminar la itinerancia "{{ object }}"?</p>
+    {{ form|crispy }}
+    <input class="btn btn-sm btn-danger" type="submit" value="Confirmar">
+</form>
+{% endblock content %}
+    

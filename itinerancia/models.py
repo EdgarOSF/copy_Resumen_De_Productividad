@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models import Count
+from django.urls import reverse
 
 from periodo.models import Periodo
 
@@ -21,6 +21,9 @@ class Itinerancia(models.Model):
     
     def municipios_atendidos(self):
         return Municipio_Atendido.objects.filter(fk_itinerancia = self.pk).count()
+    
+    def get_absolute_url(self):
+        return reverse('itinerancia:detail', args=[self.id])
 
 
 class Municipio_Atendido(models.Model):
