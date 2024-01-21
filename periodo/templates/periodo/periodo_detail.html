@@ -1,0 +1,38 @@
+{% extends 'periodo/base.html' %}
+{% block title %}{{periodo}}{% endblock title %}
+
+{% block content %}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>{{periodo.fk_periodo.fk_tribunal}}</h1>
+    </div>
+    <section class="section dashboard mb-3">
+        <div class="row">
+            <div class="col-xl-8">
+                <div class="card">
+                    <div class="card-body pt-3">
+                        <h5 class="card-title">Detalles de Periodo</h5>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label fw-bold">Fecha De Inicio:</div>
+                            <div class="col-lg-9 col-md-8">{{periodo.fecha_inicio}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label fw-bold">Fecha De Termino:</div>
+                            <div class="col-lg-9 col-md-8">{{periodo.fecha_termino}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label fw-bold">Tribunal:</div>
+                            <div class="col-lg-9 col-md-8">{{periodo.fk_tribunal}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <a class="btn btn-info" href="{% url 'periodo:index' %}">Regresar</a>
+    <a class="btn btn-warning" href="{% url 'periodo:update' periodo.id %}">Editar</a>
+    <a class="btn btn-danger" href="{% url 'periodo:delete' periodo.id %}">Eliminar</a>
+</main>
+
+{% endblock content %}

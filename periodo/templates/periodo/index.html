@@ -1,0 +1,29 @@
+{% extends 'periodo/base.html' %}
+
+{% block title %}Index{% endblock title %}
+
+
+{% block content %}
+<h1>Listado De Periodos</h1>
+<br>
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Fecha De Inicio</th>
+            <th scope="col">Fecha de Termino</th>
+            <th scope="col">Tribunal</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for periodo in object_list %}
+        <tr>
+            <td><a href="{{periodo.get_absolute_url}}">{{periodo.id}}</a></td>
+            <td>{{periodo.fecha_inicio}}</td>
+            <td>{{periodo.fecha_termino}}</td>
+            <td>{{periodo.fk_tribunal}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

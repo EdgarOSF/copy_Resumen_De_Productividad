@@ -1,0 +1,13 @@
+{% extends 'periodo/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<br>
+<form method="post">{% csrf_token %}
+    <p class="h1">Estas seguro de eliminar el periodo "{{ object }}"?</p>
+    {{ form|crispy }}
+    <br>
+    <input class="btn btn-sm btn-danger" type="submit" value="Confirmar">
+</form>
+{% endblock content %}
+    

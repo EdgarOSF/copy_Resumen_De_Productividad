@@ -25,5 +25,6 @@ urlpatterns = [
     path('resumen/', include('resumen.urls'), name='resumen'),
     path('itinerancia/', include('itinerancia.urls')),
     path('visita/', include('visita_inspeccion.urls')),
+    path('periodo/', include('periodo.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
