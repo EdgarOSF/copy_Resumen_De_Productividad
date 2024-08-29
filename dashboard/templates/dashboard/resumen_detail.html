@@ -404,7 +404,7 @@
                                     <tbody>
                                         {% for itinerancia in resumen.itinerancias %}
                                         <tr>
-                                            <td><a href="{% url 'itinerancia:itinerancia_detail' itinerancia.pk %}" class="text-primary fw-bold">{{itinerancia.fecha}}</a></td>
+                                            <td><a href="{% url 'itinerancia:detail' itinerancia.pk %}" class="text-primary fw-bold">{{itinerancia.fecha}}</a></td>
                                             <td>{{itinerancia.municipio_sede}}</td>
                                             <td>{{itinerancia.poblado_sede}}</td>
                                             <td>{{itinerancia.municipios_atendidos}}</td>
