@@ -16,7 +16,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = config('DEBUG_IS_ACTIVATE', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1', 'localhost']
 
 
 # Application definition
