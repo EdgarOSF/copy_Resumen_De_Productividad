@@ -2,3 +2,4 @@ Django==4.2
 python-decouple==3.6
 django-crispy-forms==2.1
 crispy-bootstrap5==2023.10
+whitenoise==6.7.0
