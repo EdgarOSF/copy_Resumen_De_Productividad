@@ -1,4 +1,4 @@
 echo "BUILD START"
-python311 -m pip install -r requirements.txt
-python311 manage.py collectstatic --noinput --clear
+pip install -r requirements.txt
+python manage.py collectstatic --noinput
 echo "BUILD END"
